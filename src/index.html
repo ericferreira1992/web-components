@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <title>WebComponents</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <meta name="theme-color" content="#555555">
+        <link rel="stylesheet" href="style.css">
+        <script src="components/normal-counter.js"></script>
+        <script src="components/public-counter.js"></script>
+        <script src="components/secured-counter.js"></script>
+        <style>
+            p { color: red; }
+        </style>
+    </head>
+    <body>
+        <h3>WebComponents</h3>
+        
+        <div class="wc-area">
+            <normal-counter></normal-counter>
+            <button onclick="externalIncrement(this)">Add externo</button>
+        </div>
+        <div class="wc-area">
+            <public-counter></public-counter>
+            <button onclick="externalIncrement(this)">Add externo</button>
+        </div>
+        <div class="wc-area">
+            <secured-counter></secured-counter>
+            <button onclick="externalIncrement(this)">Add externo</button>
+        </div>
+
+        <script>
+            function externalIncrement(buttonEl) {
+                let webComponent = buttonEl.parentElement.children[0];
+                
+                switch(webComponent.tagName.toLowerCase()) {
+                    case 'normal-counter': {
+                        let pEl = webComponent.querySelector('p');
+                        pEl.textContent = ++webComponent.contador;
+                        break;
+                    }
+                    case 'public-counter':
+                    case 'secured-counter': {
+                        let pEl = webComponent.shadowRoot.querySelector('p');
+                        pEl.textContent = ++webComponent.shadowRoot.contador;
+                        break;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

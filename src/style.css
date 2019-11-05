@@ -1,0 +1,30 @@
+
+body {
+    margin: 20px 15px;
+    font-family: Arial;
+}
+h3 { margin: 15px 0 0 15px; }
+
+.wc-area {
+    float: left;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid transparent;
+    transition-duration: 300ms;
+}
+.wc-area > *:first-child {
+    transition-duration: 300ms;
+    display: block;
+    padding: 15px;
+    background: #EEE;
+}
+.wc-area:hover > *:first-child {
+    background: #E0E0E0;
+}
+.wc-area:hover {
+    border-color: #EEE;
+}
+.wc-area > button {
+    font-size: 13px;
+    margin-top: 15px;
+}

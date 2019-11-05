@@ -1,0 +1,12 @@
+{
+    "name": "web-components",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "pushd src && npx http-server"
+    },
+    "private": true,
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+}
